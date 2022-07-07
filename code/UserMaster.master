@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMaster.master.cs" Inherits="UserMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/templatemo-style.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div class="responsive-header visible-xs visible-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-section">
+                            <div class="profile-image">
+                                <img src="images/profile.jpg" alt="Volton" />
+                            </div>
+                            <div class="profile-content">
+                                 <h3 class="profile-title">Welcome <% if (!string.IsNullOrEmpty(Session["userid"] as string)) { Response.Write(Session["userid"].ToString()); } else { Response.Write("Guest"); } %>!!!</h3>
+                                <p class="profile-description">The Baker Factory</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+                <div class="main-navigation responsive-menu">
+                    <ul class="navigation">
+                        <li><a href="AllProducts.aspx"><i class="fa fa-link"></i>All Products</a></li>
+                        <li><a href="PreviousOrders.aspx"><i class="fa fa-globe"></i>Previous Orders</a></li>
+                        <li><a href="TrackYourOrder.aspx"><i class="fa fa-pencil"></i>Track Order</a></li>
+                        <li><a href="#projects"><i class="fa fa-paperclip"></i>Update Profile</a></li>
+                        <li><a href="Logout.aspx"><i class="fa fa-paperclip"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- SIDEBAR -->
+        <div class="sidebar-menu hidden-xs hidden-sm">
+            <div class="top-section">
+                <div class="profile-image">
+                    <img src="images/profile.jpg" alt="Volton">
+                </div>
+                <h3 class="profile-title">Welcome <% if (!string.IsNullOrEmpty(Session["userid"] as string)) { Response.Write(Session["userid"].ToString()); } else { Response.Write("Guest"); } %>!!!</h3>
+                                <p class="profile-description">The Baker Factory</p>
+            </div> <!-- top-section -->
+            <div class="main-navigation">
+                <ul class="navigation">
+                    <li><a href="AllProducts.aspx"><i class="fa fa-link"></i>All Products</a></li>
+                        <li><a href="PreviousOrders.aspx"><i class="fa fa-globe"></i>Previous Orders</a></li>
+                        <li><a href="TrackYourOrder.aspx"><i class="fa fa-pencil"></i>Track Order</a></li>
+                        <li><a href="#projects"><i class="fa fa-paperclip"></i>Update Profile</a></li>
+                        <li><a href="Logout.aspx"><i class="fa fa-paperclip"></i>Logout</a></li>
+                    
+                </ul>
+            </div> <!-- .main-navigation -->
+            <div class="social-icons">
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div> <!-- .social-icons -->
+        </div> <!-- .sidebar-menu -->
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    
+    </form>
+</body>
+</html>
